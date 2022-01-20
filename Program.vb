@@ -3,7 +3,7 @@ Imports DateTime
 
 Module Program
     Sub Main(args As String())
-        task1a()
+        task1b()
     End Sub
 
     sub task1Arrays()
@@ -20,7 +20,6 @@ Module Program
 
     sub task1a()
         DIM strDateFormat = "dd-MMM-yyyy"
-        DIM dateArray(0 to 2) As DATETIME
         DIM dateValue as DATETIME
 
         DO 'REPEAT
@@ -37,10 +36,11 @@ Module Program
     end sub
 
     sub task1b()
+        DIM maxArr = 2
         DIM strDateFormat = "dd-MMM-yyyy"
-        DIM dateArray(0 to 2) As DateTime
+        DIM dateArray(0 to maxArr) As DateTime
 
-        FOR i = 0 TO 2
+        FOR i = 0 TO maxArr
             DO 'REPEAT
                 console.write("Enter a date (DD-MMM-YYYY): ")
                 DIM Temp = console.readline()
@@ -52,7 +52,7 @@ Module Program
             LOOP UNTIL (dateArray(i) > CDate("01-JAN-2020") AND dateArray(i) <= Now())
             Console.WriteLine("You entered: " & dateArray(i).ToString("dd-MMM-yyyy"))
         NEXT i
-        FOR i = 0 TO 2
+        FOR i = 0 TO maxArr
             Console.Write("Date " & cstr(i) & " is: " & dateArray(i).ToString(strDateFormat))
             IF dateArray(i).addyears(1) < Now() THEN
                 console.WriteLine(" Expired")
